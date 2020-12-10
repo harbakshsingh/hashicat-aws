@@ -48,6 +48,14 @@ resource "aws_security_group" "hashicat" {
     cidr_blocks = ["0.0.0.0/0"]
   }
 
+  
+  ingress {
+    from_port   = 8080
+    to_port     = 8080
+    protocol    = "tcp"
+    cidr_blocks = ["0.0.0.0/0"]
+  }
+
   egress {
     from_port       = 0
     to_port         = 0
@@ -126,9 +134,13 @@ resource "aws_instance" "hashicat" {
 
 
   tags = {
+<<<<<<< HEAD
     Name = "${var.prefix}-hashicat-instance"
     Department = "DevOps"
     Billable = "true" 
+=======
+    Name = "${var.prefix}-hashicat-instance-Department"
+>>>>>>> d62cece8ce525d92dfb33fa5de87170b2f0de32f
   }
 }
 
@@ -197,3 +209,4 @@ resource "aws_key_pair" "hashicat" {
   key_name   = local.private_key_filename
   public_key = tls_private_key.hashicat.public_key_openssh
 }
+
