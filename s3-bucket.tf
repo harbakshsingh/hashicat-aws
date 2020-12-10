@@ -3,7 +3,7 @@ module "s3-bucket" {
   version = "1.17.0"
   bucket = "my-s3-bucket"
   acl    = "private"
-  bucket_prefix = "Harry"
+  #bucket_prefix = "Harry"
   versioning = {
     enabled = true
   }
